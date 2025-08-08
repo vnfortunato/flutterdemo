@@ -30,7 +30,7 @@ class _CACardState extends State<CACard> {
 
     Future.delayed(Duration.zero, () {
       setState(() {
-        _offset = Offset.zero; // Slide into view
+        _offset = Offset.zero;
       });
     });
   }

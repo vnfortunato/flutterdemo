@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterdemo/main.dart';
 
 import '../screens/apply.dart';
+import '../screens/homepage.dart';
 
 class CADrawer extends StatelessWidget {
   final bool homepageActive;
@@ -17,32 +18,33 @@ class CADrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       width: 235,
-      child: ListView(
-        children: [
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(builder: (context) => MyApp()),
-              );
-            },
-            child: (homepageActive == true) ? ListTile(title: Text(
-                "Homepage", style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold)))
-                : ListTile(title: Text("Homepage")),
-          ),
-          TextButton(
+        child: ListView(
+          children: [
+            Center(child: Text("Menu", style: TextStyle(fontSize: 20, decoration: TextDecoration.underline))),
+            TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute<void>(builder: (context) => FirstPage()),
+                  MaterialPageRoute<void>(builder: (context) => MyApp()),
                 );
               },
-              child: (firstPageActive == true) ? ListTile(title: Text(
-                  "Apply", style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold)))
-              : ListTile(title: Text("Apply")),
-          ),
-        ],
-      ),
-    );
+              child: (homepageActive == true) ? ListTile(title: Text(
+                  "Homepage", style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold)))
+                  : ListTile(title: Text("Homepage")),
+            ),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(builder: (context) => FirstPage()),
+                  );
+                },
+                child: (firstPageActive == true) ? ListTile(title: Text(
+                    "Apply", style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold)))
+                : ListTile(title: Text("Apply")),
+            ),
+          ],
+        ),
+      );
   }
 }
